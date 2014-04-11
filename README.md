@@ -1,9 +1,7 @@
-drupal8.box
-===========
+drupal8.box (VirtualBox)
+========================
 
 Provide an Drupal 8 friendly developpment environement.
-
-Works with **VirtualBox** or **VMWare**
 
 Based on Ubuntu 13.10 *"Saucy Salamander"*
 
@@ -20,10 +18,7 @@ The box is intended to be configured with parameters included in the box/setting
 
 - IP: 10.20.30.60 => This IP address is used in the conf/salt/states/mysql/my.cnf file too (to mysql be attached to this address).
 
-###Quickstart
-In the "box" directory :
+####Virtualbox installation
 
-- For VirtualBox users : vagrant up
-- For VMWare users : vagrant up --provider=vmware_fusion
-
-Be careful: the bindfs plugin has been used for vmware fusion for performance reasons. If the "vagrant up" cause some problems, the rest of the process can be acheived with a "vagrant provision" command.
+- In box/sttings.yml change your *box_url* to a Unbuntu 13.10 box compatible with Virtualbox
+- Change *vm_provider* to "virtualbox"

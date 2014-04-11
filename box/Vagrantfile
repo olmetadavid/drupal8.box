@@ -35,10 +35,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     end
   end
 
-  config.vm.provider :vmware_fusion do |v|
-    v.vmx["memsize"] = settings[:ram]
-    v.vmx["numvcpus"] = settings[:proc]
-  end
 
   config.vm.provider "virtualbox" do |v|
     v.customize [ "modifyvm", :id, "--cpus", settings[:proc] ]
@@ -50,19 +46,12 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   if settings[:synced_folders]
     settings[:synced_folders].each do |sf_name, sf|
-
-      if settings[:vm_provider] == 'vmw'
-        config.vm.synced_folder sf[:host_path], sf[:guest_path_nfs], :nfs => true, :mount_options => ['nolock,vers=3,udp']
-        config.bindfs.bind_folder sf[:guest_path_nfs], sf[:guest_path]
-      else
-        config.vm.synced_folder sf[:host_path], sf[:guest_path], :nfs => true
-      end
-
+      config.vm.synced_folder sf[:host_path], sf[:guest_path], :nfs => true
     end
   end
 
   config.vm.provision :salt do |salt|
-    
+
     salt.install_args = "v0.16.0"
     salt.install_type = "git"
     salt.minion_config = "conf/minion"

@@ -2,8 +2,8 @@ ip: '10.20.30.60'
 ram: 2048
 proc: 1
 box_name: 'saucy64'
-box_url: 'http://brennovich.s3.amazonaws.com/saucy64_vmware_fusion.box'
-vm_provider: vmw
+box_url: 'http://cloud-images.ubuntu.com/vagrant/saucy/current/saucy-server-cloudimg-amd64-vagrant-disk1.box'
+vm_provider: virtualbox
 forwards:
 synced_folders:
   projects:
