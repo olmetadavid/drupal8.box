@@ -1,11 +1,13 @@
-drupal8.box (VirtualBox)
-========================
+drupal8.box
+===========
 
 Provide an Drupal 8 friendly developpment environement.
 
+Works with **VirtualBox** or **VMWare**
+
 Based on Ubuntu 13.10 *"Saucy Salamander"*
 
-###Structure:
+##Structure:
 
 - box : the configuration files for the box
 - dump : the dump files if needed
@@ -13,12 +15,23 @@ Based on Ubuntu 13.10 *"Saucy Salamander"*
 - scripts : some scripts if needed
 - www : the web folder which must contains all Drupal 8 files
 
-###Configuration
+##Configuration
 The box is intended to be configured with parameters included in the box/settings.yml, notably :
 
 - IP: 10.20.30.60 => This IP address is used in the conf/salt/states/mysql/my.cnf file too (to mysql be attached to this address).
 
-####Virtualbox installation
+##Installation
 
-- In box/sttings.yml change your *box_url* to a Unbuntu 13.10 box compatible with Virtualbox
-- Change *vm_provider* to "virtualbox"
+Depending on wich provider you use (VMWare or VirtualBox) choose the corrsponding settings file in box/ and rename it settings.yml.
+
+You can also edit you own settings.yml if you wish to use your own base box.
+
+###VMWare
+Place youself in the box forlder
+
+>vagrant up --provider=vmware_fusion
+
+###Virtualbox
+Place youself in the box forlder
+
+> vagrant up
