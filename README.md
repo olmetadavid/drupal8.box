@@ -14,3 +14,6 @@ This contains the following folders :
 - logs : the logs files which Apache will generate
 - scripts : some scripts if needed
 - www : the web folder which must contains all Drupal 8 files
+
+The box is intended to be configured with parameters included in the box/settings.yml, notably :
+- IP: 10.20.30.60 => This IP address is used in the conf/salt/states/mysql/my.cnf file too (to mysql be attached to this address).
