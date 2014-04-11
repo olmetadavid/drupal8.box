@@ -40,6 +40,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     v.vmx["numvcpus"] = settings[:proc]
   end
 
+
   config.vm.provider "virtualbox" do |v|
     v.customize [ "modifyvm", :id, "--cpus", settings[:proc] ]
     v.customize [ "modifyvm", :id, "--memory", settings[:ram] ]
@@ -57,12 +58,11 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       else
         config.vm.synced_folder sf[:host_path], sf[:guest_path], :nfs => true
       end
-
     end
   end
 
   config.vm.provision :salt do |salt|
-    
+
     salt.install_args = "v0.16.0"
     salt.install_type = "git"
     salt.minion_config = "conf/minion"
