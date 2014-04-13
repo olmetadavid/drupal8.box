@@ -41,3 +41,17 @@ In the "box" directory :
 * For VMWare users : vagrant up --provider=vmware_fusion
 
 Be careful: the bindfs plugin has been used for vmware fusion for performance reasons. If the "vagrant up" cause some problems, the rest of the process can be acheived with a "vagrant provision" command.
+
+Note: for Virtual Box users, it could be required to give an IP address like this one : 10.0.0.100
+
+## Example of base boxes
+
+### For VMWare:
+
+box_name: 'saucy64'
+box_url: 'http://brennovich.s3.amazonaws.com/saucy64_vmware_fusion.box'
+
+### For Virtual Box:
+
+box_name: 'saucy64-vb'
+box_url: 'http://cloud-images.ubuntu.com/vagrant/saucy/current/saucy-server-cloudimg-i386-vagrant-disk1.box'
