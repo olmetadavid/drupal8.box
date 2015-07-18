@@ -53,7 +53,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
       if settings[:vm_provider] == 'vmw'
         config.vm.synced_folder sf[:host_path], sf[:guest_path_nfs], :nfs => true, :mount_options => ['nolock,vers=3,udp']
-        config.bindfs.bind_folder sf[:guest_path_nfs], sf[:guest_path]
+        config.bindfs.bind_folder sf[:guest_path_nfs], sf[:guest_path],
+          :o => "nonempty"
       else
         config.vm.synced_folder sf[:host_path], sf[:guest_path], :nfs => true
       end

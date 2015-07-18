@@ -12,3 +12,9 @@ nano:
 
 curl:
   pkg.installed
+
+pkg-config:
+  pkg.installed
+
+libfuse-dev:
+  pkg.installed
