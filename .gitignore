@@ -1,1 +1,6 @@
 .vagrant
+box/settings.yml
+www/*
+logs/*
+scripts/*
+
