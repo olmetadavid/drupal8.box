@@ -8,41 +8,23 @@ apache2:
       - file: vhost-{{ project }}
 {% endfor %}
 
-apache2-mpm-worker:
-  pkg.installed
-
-libapache2-mod-fastcgi:
-  pkg.installed
-
-php5-fpm:
-  pkg.installed
-
-php5:
-  pkg.installed
-
-php5-cgi:
-  pkg.installed
-
-php5-cli:
-  pkg.installed
-
-php5-curl:
-  pkg.installed
-
-php5-dev:
-  pkg.installed
-
-php5-gd:
-  pkg.installed
-
-php5-mysql:
-  pkg.installed
-
-php5-xdebug:
-  pkg.installed
-
-php5-json:
-  pkg.installed
+php5-pkgs:
+  pkg.installed:
+    - names:
+      - php5
+      - php5-mysql
+      - php5-curl
+      - php5-cli
+      - php5-cgi
+      - php5-dev
+      - php-pear
+      - php5-gd
+      - php5-xdebug
+      - php5-sqlite
+      - php5-json
+      - php5-fpm
+      - apache2-mpm-worker
+      - libapache2-mod-fastcgi
 
 /etc/php5/fpm/pool.d/www.conf:
   file:
