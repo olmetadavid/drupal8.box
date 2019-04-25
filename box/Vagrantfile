@@ -31,7 +31,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   if settings[:forwards]
     settings[:forwards].each do |fname, forward|
-      config.vm.network :forwarded_port, guest: forward[:from], host: forward[:to]
+      config.vm.network :forwarded_port, guest: forward[:from], host: forward[:to], auto_correct: true
     end
   end
 
